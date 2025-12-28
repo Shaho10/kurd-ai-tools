@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Kurd AI Tools</title>
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#0f172a;
+    color:white;
+}
+header{
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#020617;
+}
+button{
+    background:#38bdf8;
+    border:none;
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+}
+.container{padding:40px;text-align:center;}
+.tool-box{
+    margin-top:30px;
+    background:#020617;
+    padding:25px;
+    border-radius:12px;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+}
+input,textarea{
+    width:90%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+    border:none;
+}
+select{padding:6px;border-radius:6px;}
+</style>
+</head>
+<body>
+
+<header>
+<h2>Kurd AI Tools</h2>
+<select id="lang" onchange="setLang()">
+<option value="en">English</option>
+<option value="ar">عربي</option>
+<option value="ku">کوردی</option>
+</select>
+</header>
+
+<div class="container">
+<h1 id="title">AI CV Builder</h1>
+<p id="desc">Create your professional CV in seconds</p>
+
+<div class="tool-box">
+<input id="name" placeholder="Your Name">
+<textarea id="skills" placeholder="Your skills and experience"></textarea>
+<button onclick="generateCV()">Generate CV</button>
+<p id="result"></p>
+</div>
+</div>
+
+<script>
+function setLang(){
+let l=document.getElementById("lang").value;
+if(l=="ar"){
+document.getElementById("title").innerText="منشئ السيرة الذاتية بالذكاء الصناعي";
+document.getElementById("desc").innerText="أنشئ سيرتك الذاتية خلال ثواني";
+document.getElementById("name").placeholder="اسمك الكامل";
+document.getElementById("skills").placeholder="اكتب مهاراتك وخبرتك";
+}
+if(l=="ku"){
+document.getElementById("title").innerText="دروستکردنی CV بە زیرەکی دەستکرد";
+document.getElementById("desc").innerText="CV یەکەت دروست بکە لە چەند چرکەیەکدا";
+document.getElementById("name").placeholder="ناوت بنووسە";
+document.getElementById("skills").placeholder="تواناکانت و ئەزموونەکانت";
+}
+if(l=="en"){
+document.getElementById("title").innerText="AI CV Builder";
+document.getElementById("desc").innerText="Create your professional CV in seconds";
+document.getElementById("name").placeholder="Your Name";
+document.getElementById("skills").placeholder="Your skills and experience";
+}
+}
+
+function generateCV(){
+let n=document.getElementById("name").value;
+let s=document.getElementById("skills").value;
+document.getElementById("result").innerText=
+"Name: "+n+"\n\nSkills & Experience:\n"+s;
+}
+</script>
+
+</body>
+</html>
