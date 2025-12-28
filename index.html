@@ -42,6 +42,8 @@ input,textarea{
     border:none;
 }
 select{padding:6px;border-radius:6px;}
+h3{margin-top:20px;}
+p{white-space:pre-line;}
 </style>
 </head>
 <body>
@@ -65,6 +67,15 @@ select{padding:6px;border-radius:6px;}
 <button onclick="generateCV()">Generate CV</button>
 <p id="result"></p>
 </div>
+
+<div class="tool-box">
+<h3 id="msgTitle">Smart Message Generator</h3>
+<input id="topic" placeholder="Message topic (e.g apology, job request)">
+<textarea id="details" placeholder="Write few words about the situation"></textarea>
+<button onclick="genMsg()">Generate Message</button>
+<p id="msgResult"></p>
+</div>
+
 </div>
 
 <script>
@@ -75,18 +86,27 @@ document.getElementById("title").innerText="منشئ السيرة الذاتية
 document.getElementById("desc").innerText="أنشئ سيرتك الذاتية خلال ثواني";
 document.getElementById("name").placeholder="اسمك الكامل";
 document.getElementById("skills").placeholder="اكتب مهاراتك وخبرتك";
+document.getElementById("msgTitle").innerText="مولد الرسائل الذكية";
+document.getElementById("topic").placeholder="موضوع الرسالة (مثال: اعتذار، طلب وظيفة)";
+document.getElementById("details").placeholder="اكتب كلمات عن الموقف";
 }
 if(l=="ku"){
 document.getElementById("title").innerText="دروستکردنی CV بە زیرەکی دەستکرد";
 document.getElementById("desc").innerText="CV یەکەت دروست بکە لە چەند چرکەیەکدا";
 document.getElementById("name").placeholder="ناوت بنووسە";
 document.getElementById("skills").placeholder="تواناکانت و ئەزموونەکانت";
+document.getElementById("msgTitle").innerText="دروستکردنی نامەی زیرەکی";
+document.getElementById("topic").placeholder="بابەتی نامە (نمونە: بێڕەحم، داواکاری کار)";
+document.getElementById("details").placeholder="چند وشە لەسەر ئەو بارودۆخە بنووسە";
 }
 if(l=="en"){
 document.getElementById("title").innerText="AI CV Builder";
 document.getElementById("desc").innerText="Create your professional CV in seconds";
 document.getElementById("name").placeholder="Your Name";
 document.getElementById("skills").placeholder="Your skills and experience";
+document.getElementById("msgTitle").innerText="Smart Message Generator";
+document.getElementById("topic").placeholder="Message topic (e.g apology, job request)";
+document.getElementById("details").placeholder="Write few words about the situation";
 }
 }
 
@@ -95,6 +115,14 @@ let n=document.getElementById("name").value;
 let s=document.getElementById("skills").value;
 document.getElementById("result").innerText=
 "Name: "+n+"\n\nSkills & Experience:\n"+s;
+}
+
+function genMsg(){
+let t=document.getElementById("topic").value;
+let d=document.getElementById("details").value;
+document.getElementById("msgResult").innerText=
+"Subject: "+t+"\n\nDear Sir/Madam,\n"+d+
+"\n\nBest regards.";
 }
 </script>
 
